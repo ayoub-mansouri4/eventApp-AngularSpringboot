@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <!-- Favicon-->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="nav-bar.component.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+<!-- Navigation-->
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a style='' class="navbar-brand" href="#page-top"><img src='assets/image/Untitled-01.svg' alt="..." /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fas fa-bars ms-1"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+        <div *ngIf="loginServices.selecttio()" >
+        <li class="nav-item"  style="display: inline-block"><a class="nav-link active ms-0" (click)="btnClickk()" >Home</a></li>
+        <li class="nav-item"  style="display: inline-block"><a class="nav-link"  (click)="btnClickik()">Mes evenement</a></li>
+        <li class="nav-item"  style="display: inline-block"><a class="nav-link"  (click)="btnClickikk()">Ajouter un evenement </a></li>
+      </div>
+
+        <li class="nav-item"><button   class="btn btn-outline-success my-2 my-sm-0" *ngIf="!loginServices.selecttio()" (click)="btnClick()">Sign In</button></li>
+        <div class="j">
+        <li class="nav-item"><button  class="btn btn-success" *ngIf="!loginServices.selecttio() " (click)="btnClicki()" > sign up</button></li>
+    </div>
+      </ul>
+      <ul class="navbar-nav " *ngIf="loginServices.selecttio() ">
+      <li class="nav-item dropdown" >
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{loginServices.selecttio()}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/myparticipations">Mes participations</a>
+          <a class="dropdown-item" (click)="profil()">Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" *ngIf="loginServices.selecttio()" (click)="loginServices.logoutUser()">Logout</a>
+
+        </div>
+      </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+</body>
+</html>

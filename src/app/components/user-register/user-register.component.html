@@ -1,0 +1,40 @@
+<section class="vh-100 ">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://image.freepik.com/free-vector/love-sport-concept_98292-996.jpg" class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form>
+           
+            <div class="form-outline mb-4">
+              <input type="text" [(ngModel)]="user.firstName" name="firstName" placeholder="Prénom" class="form-control form-control-lg" />
+            </div>
+
+            <div class="form-outline mb-4">
+                <input type="text" [(ngModel)]="user.lastName"  name="lastName" placeholder="Nom" class="form-control form-control-lg" />
+            </div>
+
+            <div class="form-outline mb-4 ">
+                <input type="text" [(ngModel)]="user.age" name="age" placeholder="Age" class="form-control form-control-lg" />
+            </div>
+            <div class="form-outline mb-4">
+                <input type="email" [(ngModel)]="user.email" name="email" placeholder="Email" class="form-control form-control-lg" />
+            </div>
+  
+           
+            <div class="form-outline mb-4 container">
+            <div class="row">
+                <input type="password" [(ngModel)]="user.password" name="password" placeholder="Mot de passe" class="form-control form-control-lg col" />
+                <input type="password" [(ngModel)]="ConfirmedPassword" name="ConfirmedPassword" placeholder="Svp confirmer ici" class="form-control form-control-lg col" />
+            </div>  
+            </div>
+  
+  
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="register()">S'INSCRIRE</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,90 @@
+<div class="row" style="margin-top: 6%;">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive project-list">
+            <table class="table project-table table-centered table-nowrap">
+              <thead>
+              <tr style="text-align: center;">
+                <th scope="col">titre</th>
+                <th scope="col">sport</th>
+                <th scope="col">participants</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Start Time</th>
+                <th scope="col">Lieu</th>
+                <th scope="col">groupe</th>
+                <th scope="col">Progress</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr *ngFor="let eventDetails of eventsDetails " style="text-align: center;">
+                <td>{{eventDetails.post.title}}</td>
+                <td>{{eventDetails.event.sport}}</td>
+                <td >{{eventDetails.participants.length}}/<span style="color:green;font-weight: bold;">{{eventDetails.event.number_participants}}</span></td>
+                <td>{{eventDetails.event.date_event}}</td>
+                <td>{{eventDetails.event.time_event}}</td>
+                <td><a type="button"  (click)="map(eventDetails.location.latitude,eventDetails.location.longitude)"  class="btn btn-outline-secondary">{{eventDetails.location.location_name}}</a>
+                  </td>
+                <td>
+                  <div class="team">
+                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Roger Drake">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle avatar-xs" alt="" />
+                    </a>
+
+                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Reggie James">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="rounded-circle avatar-xs" alt="" />
+                    </a>
+
+                    <a href="javascript: void(0);" class="team-member" data-toggle="tooltip" data-placement="top" title="" data-original-title="Gerald Mayberry">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar8.png" class="rounded-circle avatar-xs" alt="" />
+                    </a>
+                  </div>
+                </td>
+                <td>
+                  <p class="mb-0">Progress<span class="float-right">{{(eventDetails.participants.length*100)/eventDetails.event.number_participants}}%</span></p>
+
+                  <div class="progress mt-2" style="height: 5px;">
+                    <div class="progress-bar bg-success" role="progressbar" [style.width]="(eventDetails.participants.length*100)/eventDetails.event.number_participants+'%'" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                </td>
+
+
+                <td>
+                  <div class="action">
+                      
+                </div>
+                </td>
+                <td>
+                  <button class="btn btn-warning" style="color: white;font-weight: bold;" data-toggle="modal" [attr.data-target]="'#'+eventDetails.event.id_event"  (click)="open(mymodal)">plus d'infos</button>
+                  <ng-template #mymodal let-modal>
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="modal-basic-title">#{{eventDetails.event.id_event}}-{{eventDetails.post.title}}</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      propriétaire : {{eventDetails.eventOwner.firstName}} {{eventDetails.eventOwner.lastName}} <br>
+                      Description : {{eventDetails.post.description}} .<br>
+                      Date et temps de clôture du post : {{eventDetails.post.date_post}} - {{eventDetails.post.time_post}}
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" >Ok</button>
+                    </div>
+                  </ng-template>
+                </td>
+              </tr>
+
+
+              </tbody>
+            </table>
+
+  
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>

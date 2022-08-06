@@ -1,0 +1,35 @@
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://image.freepik.com/free-vector/sport-equipment-concept_1284-13034.jpg" class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <form>
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="email" placeholder="Adresse email"  [(ngModel)]="user.email" name="email" class="form-control form-control-lg"  />
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" placeholder="Mot de passe" [(ngModel)]="user.password" name="password" class="form-control form-control-lg" />
+            </div>
+  
+  
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="login()">SE CONNECTER</button>
+
+            <div class="d-flex justify-content-around align-items-center mb-4" style="margin-top: 3%;">
+              <a href="#!">Forgot password?</a>
+            </div>
+            <hr >
+            <a type="submit" routerLink="/register" class="btn  btn-lg btn-block" style="background-color: rgb(0, 204, 255);color: rgb(253, 253, 253);">S'INSCRIRE</a>
+
+            
+      
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
